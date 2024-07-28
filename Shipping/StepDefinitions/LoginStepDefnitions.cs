@@ -14,7 +14,7 @@ namespace Shipping.StepDefinitions
         {
             
             commonObj.InitDriver(); // Initiated driver
-            commonObj.Goto("https://www.google.com");
+            commonObj.Goto("https://www.google.com"); // added URL
             var driverTitle = commonObj.Title;
             Assert.AreEqual(driverTitle,"Google");
        
