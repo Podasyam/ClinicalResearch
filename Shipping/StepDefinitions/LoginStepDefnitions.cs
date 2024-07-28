@@ -14,7 +14,11 @@ namespace Shipping.StepDefinitions
         {
             
             commonObj.InitDriver(); // Initiated driver
+
             commonObj.Goto("https://www.google.com"); // added URL and push to branch
+
+            commonObj.Goto("https://www.google.com"); // added URL
+
             var driverTitle = commonObj.Title;
             Assert.AreEqual(driverTitle,"Google"); // Added Assert//
        
@@ -23,7 +27,8 @@ namespace Shipping.StepDefinitions
         [When(@"User enter the username and password")]
         public void WhenUserEnterTheUsernameAndPassword()
         {
-            
+            //Code to be added in When // added in master 
+            // To be pushed to Brach first and from GitHub it will merge with Master
         }
 
         [When(@"User click on Login button")]
