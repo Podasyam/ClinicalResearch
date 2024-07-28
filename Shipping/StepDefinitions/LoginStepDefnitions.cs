@@ -27,7 +27,8 @@ namespace Shipping.StepDefinitions
         [When(@"User enter the username and password")]
         public void WhenUserEnterTheUsernameAndPassword()
         {
-            
+            //Code to be added in When // added in master 
+            // To be pushed to Brach first and from GitHub it will merge with Master
         }
 
         [When(@"User click on Login button")]
