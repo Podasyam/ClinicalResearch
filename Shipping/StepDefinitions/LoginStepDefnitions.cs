@@ -27,7 +27,7 @@ namespace Shipping.StepDefinitions
         [When(@"User enter the username and password")]
         public void WhenUserEnterTheUsernameAndPassword()
         {
-            
+            //Code to be added in When
         }
 
         [When(@"User click on Login button")]
