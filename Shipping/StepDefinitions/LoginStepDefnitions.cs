@@ -13,7 +13,7 @@ namespace Shipping.StepDefinitions
         public void GivenLaunchTheBrowser()
         {
             
-            commonObj.InitDriver();
+            commonObj.InitDriver(); // Initiated driver
             commonObj.Goto("https://www.google.com");
             var driverTitle = commonObj.Title;
             Assert.AreEqual(driverTitle,"Google");
