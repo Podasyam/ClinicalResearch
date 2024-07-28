@@ -47,7 +47,7 @@ namespace Shipping.StepDefinitions
         public void ThenCloseTheBrowser()
         {
            
-            commonObj.QuitBrowser();
+            commonObj.QuitBrowser();// Browser was closed.
             
         }
 
