@@ -43,8 +43,9 @@ namespace Shipping.Utilities
             { 
              
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Drive reference was null");
+                Console.WriteLine("Drive reference was null");// Comment added
             }
+
         }
     }
 }
