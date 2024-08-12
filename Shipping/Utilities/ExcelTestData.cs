@@ -79,17 +79,102 @@ namespace Shipping.Utilities
         //    }
         //}
 
-      
 
-    //}
 
-    //    internal class DataCollection
-    //    {
-    //        public int rowNumber { get; internal set; }
-    //        public string colName { get; internal set; }
-    //        public string colValue { get; internal set; }
-    //    }
+        //}
+
+        //    internal class DataCollection
+        //    {
+        //        public int rowNumber { get; internal set; }
+        //        public string colName { get; internal set; }
+        //        public string colValue { get; internal set; }
+        //    }
+
+
+
+        //public string ExcelDataReader()
+        //{
+
+        //    // Path to your Excel file
+        //    string filePath = "path_to_your_excel_file.xlsx";
+
+        //    // Open the file stream
+        //    using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+        //    {
+        //        // Create a reader using the ExcelDataReader
+        //        using (var reader = ExcelReaderFactory.CreateReader(stream))
+        //        {
+        //            // Iterate through all sheets
+        //            do
+        //            {
+        //                // Iterate through all rows
+        //                while (reader.Read())
+        //                {
+        //                    // Iterate through all columns in a row
+        //                    for (int columnIndex = 0; columnIndex < reader.FieldCount; columnIndex++)
+        //                    {
+        //                        // Get the value of the cell as a string
+        //                        string cellValue = reader.GetValue(columnIndex)?.ToString();
+
+        //                        // Print the cell value to the console
+        //                        Console.Write($"{cellValue} \t");
+
+
+        //                    }
+        //                    Console.WriteLine();
+
+
+        //                }
+
+
+        //            } while (reader.NextResult()); // Move to the next sheet
+        //        }
+        //    }
+
+
+        //}
+        public string GetCellValue()
+        {
+            string filePath = "path_to_your_excel_file.xlsx";
+            string cellValue = GetCellValue(filePath, 1, 0);
+
+            return cellValue;
+        }
+
+        public static string GetCellValue(string filePath, int rowIndex, int columnIndex)
+        {
+            // Open the file stream
+            using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+            {
+                // Create a reader using the ExcelDataReader
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    int currentRow = 0;
+
+                    // Iterate through the rows until the desired row is found
+                    while (reader.Read())
+                    {
+                        if (currentRow == rowIndex)
+                        {
+                            // Return the value of the cell as a string
+                            return reader.GetValue(columnIndex)?.ToString();
+                        }
+                        currentRow++;
+                    }
+                }
+            }
+
+            // Return null or an appropriate default value if the cell is not found
+            return null;
+        }
 
 
     }
-}
+
+
+
+
+
+
+    }
+

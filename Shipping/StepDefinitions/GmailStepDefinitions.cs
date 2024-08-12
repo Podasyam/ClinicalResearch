@@ -45,7 +45,7 @@ namespace Shipping.StepDefinitions
         public void ThenCloseBrowser()
         {
 
-            QuitBrowser();// Browser was closed.
+            // Browser was closed.
 
         }
     }
