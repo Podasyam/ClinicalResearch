@@ -1,0 +1,9 @@
+{"Timestamp":"2024-08-12T23:59:10.0251396+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"FeatureName GoogleSearchResults"}}
+{"Timestamp":"2024-08-12T23:59:10.1511803+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"Search results in Google browser"}}
+{"Timestamp":"2024-08-12T23:59:15.9849754+05:30","Level":"Debug","MessageTemplate":"Navigate to {0} on chrome browser"}
+{"Timestamp":"2024-08-12T23:59:38.2704356+05:30","Level":"Debug","MessageTemplate":"UserName is not entered"}
+{"Timestamp":"2024-08-12T23:59:50.1117635+05:30","Level":"Debug","MessageTemplate":"driver closed"}
+{"Timestamp":"2024-08-12T23:59:50.1356934+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"Search results in Google browser"}}
+{"Timestamp":"2024-08-12T23:59:59.8383908+05:30","Level":"Debug","MessageTemplate":"Navigate to {0} on edge browser"}
+{"Timestamp":"2024-08-13T00:00:15.2796876+05:30","Level":"Debug","MessageTemplate":"UserName is not entered"}
+{"Timestamp":"2024-08-13T00:00:26.0025636+05:30","Level":"Debug","MessageTemplate":"driver closed"}

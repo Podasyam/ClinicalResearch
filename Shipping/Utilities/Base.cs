@@ -2,6 +2,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using System.Reflection;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 
 namespace Shipping.Utilities
@@ -9,7 +12,7 @@ namespace Shipping.Utilities
     public class Base
     {
         
-        public static WebDriver _driver;
+        public static IWebDriver _driver;
 
         public void InitDriver(string browser)
         {
@@ -17,42 +20,34 @@ namespace Shipping.Utilities
             {
                 if (browser.Equals("chrome"))
                 {
+                    new DriverManager().SetUpDriver(new ChromeConfig());
                     _driver = new ChromeDriver();
-                    _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(6);
-                    _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
-                    _driver.Manage().Window.Maximize();
-                    
-
-                    Console.WriteLine("Initilize chrome");
+                    Serilog.Log.Debug("Navigate to {0} on chrome browser");
                 }
                 else if (browser.Equals("Edge"))
                 {
-                    _driver = new EdgeDriver();
-                    _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
-                    _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
-                    _driver.Manage().Window.Maximize();
-                   
-                    Console.WriteLine("Initilize Edge");
+                    //new DriverManager().SetUpDriver(new EdgeConfig());
+                    _driver = new EdgeDriver();                    
+                    Serilog.Log.Debug("Navigate to {0} on edge browser");
                 }
-                
-                
-                else 
-                
-                { Assert.Fail("The browser does not exist"); }
+                else                 
+                { 
+                    Assert.Fail("The browser does not exist");
+                    Serilog.Log.Debug("Browser was not launched");
+                }
+                _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(6);
+                _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(15);
+                _driver.Manage().Window.Maximize();
             }
-
             catch (NoSuchDriverException ex)
             {
-
-                //((ITakesScreenshot) _driver)
-                //.GetScreenshot().SaveAsFile("",T.Jpg);
-                //Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.Message);
-                
+                Serilog.Log.Debug("driver was not initiated");
+
             }
         }
 
-        public void Goto(string url)
+        public static void Goto(string url)
         {
             _driver.Url = url;
         }
@@ -61,20 +56,38 @@ namespace Shipping.Utilities
             get { return _driver.Title; }
         }
 
-        public void QuitBrowser()
+        public static void CaptureScreenshot()
+        {
+            ITakesScreenshot screenshot = (ITakesScreenshot)_driver;
+            screenshot.GetScreenshot().SaveAsFile("screenshot" + DateTime.Now + ".png"); ;
+            
+        }
+
+        public static void ScrollWindow()
+        {
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            js.ExecuteScript("window.scrollBy(0,430)");
+
+        }
+
+        public static void QuitDriver()
         {
             try
             {
-                 _driver.Quit();
-                
+                if (_driver != null)
+                {
+                    _driver.Quit();
+                    Serilog.Log.Debug("driver closed");
+                }
+                             
                  Console.WriteLine("Driver has been closed successfully");// Comment added
      
             }
             catch (Exception ex)
-            { 
-             
+            {              
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Drive reference was null");// Comment added
+                Console.WriteLine("NullDriverException");// Comment added
             }
 
         }
@@ -92,6 +105,22 @@ namespace Shipping.Utilities
 
 
         //}
+
+        public static void WindowHandles()
+        {
+
+            string parentWindowHandle = _driver.CurrentWindowHandle;
+
+            List<string> windowHandles = _driver.WindowHandles.ToList();
+            foreach (var handles in windowHandles)
+            {
+
+                _driver.SwitchTo().Window(handles);
+            
+            }
+        
+        }
+
 
     }
 }
