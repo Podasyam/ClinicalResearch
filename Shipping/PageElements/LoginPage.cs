@@ -31,8 +31,8 @@ namespace Shipping.PageElements
 
             }
 
-           
-           
+        public IWebElement TxtUserName
+        { get { return _driver.FindElement(By.XPath("//p[contains(text(),'TextBox :')]/descendant::input[@id='fname']")); }}
 
         }
 
