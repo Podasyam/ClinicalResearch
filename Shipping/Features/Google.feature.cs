@@ -77,13 +77,17 @@ namespace Shipping.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Search results in Google browser")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("DataSource:C:/Users/User/source/repos/ClinicalResearch/Shipping/Data/TestData.xls" +
+            "x")]
+        [NUnit.Framework.CategoryAttribute("DataSet:Sheet1")]
         [NUnit.Framework.TestCaseAttribute("chrome", null)]
         [NUnit.Framework.TestCaseAttribute("Edge", null)]
         public void SearchResultsInGoogleBrowser(string environment, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag"};
+                    "DataSource:C:/Users/User/source/repos/ClinicalResearch/Shipping/Data/TestData.xls" +
+                        "x",
+                    "DataSet:Sheet1"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
