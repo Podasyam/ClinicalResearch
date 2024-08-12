@@ -20,7 +20,7 @@ namespace Shipping.Utilities
             {
                 if (browser.Equals("chrome"))
                 {
-                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    new DriverManager().SetUpDriver(new ChromeConfig());//Webdriver Manager
                     _driver = new ChromeDriver();
                     Serilog.Log.Debug("Navigate to {0} on chrome browser");
                 }
