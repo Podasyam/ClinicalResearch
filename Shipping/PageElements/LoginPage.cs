@@ -16,7 +16,7 @@ namespace Shipping.PageElements
             _driver = driver;
 
         }
-        //Usernametextbox//addedbymaster
+        //Usernametextbox//addedbySyam//addedcomment on 13-08-24
         public IWebElement TxtUserName
         { get { return _driver.FindElement(By.XPath("//p[contains(text(),'TextBox :')]/descendant::input[@id='fname']")); }}
 
