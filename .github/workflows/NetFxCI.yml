@@ -21,4 +21,4 @@ jobs:
        run: nuget restore ClinicalResearch.sln
 
      - name: Build the Solution
-       run: msbuild ClinicalResearch.sln           
+       run: msbuild ClinicalResearch.sln
