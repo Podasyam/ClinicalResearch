@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Interactions;
+using Shipping.CustomControls;
 
 namespace Shipping.PageFlow
 {
@@ -23,22 +24,24 @@ namespace Shipping.PageFlow
             _driver = driver;
                 
         }
-        public void EnterUserName()//Enter username by Podasyam-patch-1
+        public void SearchResults()//Enter username by Podasyam-patch-1
         {
             Base.ScrollWindow();
 
             ExcelOperation excelOperation = new ExcelOperation();
-            string value = excelOperation.ReadExcel(filePath + "TestData.xlsx");
+            string value = excelOperation.ReadExcelData(filePath + "TestData.xlsx");
 
             try
                 {                    
-                LoginPage loginpage = new LoginPage(_driver);              
-                Actions action = new Actions(_driver);
-                action.MoveToElement(loginpage.TxtUserName).Click().Build().Perform();
-                loginpage.TxtUserName.SendKeys(value);
-                loginpage.TxtPassword.SendKeys(value);
+                var loginpage = new LoginPage(_driver);              
+                var action = new Actions(_driver);
+                action.MoveToElement(loginpage.TxtSearch).Click().Build().Perform();
+                CustomControl.EnterText(loginpage.TxtSearch, value);
+                Serilog.Log.Debug("search keyword"+" "+value +" "+"has been entered in search textbox");
+                CustomControl.Click(loginpage.BtnSearch);
+                CustomControl.LableMessage(loginpage.LblSearchResult, "Search results for:");
                 }
-                catch (ElementNotVisibleException ex)
+                catch (NoSuchElementException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
