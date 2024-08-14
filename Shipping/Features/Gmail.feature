@@ -1,10 +1,11 @@
 ﻿Feature: Gmail
 
-A short summary of the feature
+  Background:
+    Given user launch the browser
+    And  user should logout
 
 @tag1
-Scenario: Access Gmail
-	Given Launch google browser
-	When  Click on gmail
-	Then  gmail should open
-	And  Close browser 
+Scenario: Access Gmail account
+	When  User enter usernmae and passowrd
+	Then  gmail homepage should open
+	

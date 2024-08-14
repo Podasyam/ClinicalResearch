@@ -1,0 +1,7 @@
+{"Timestamp":"2024-08-14T13:16:52.4297686+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"FeatureName GoogleSearchResults"}}
+{"Timestamp":"2024-08-14T13:16:52.6229901+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"Search results in Google browser"}}
+{"Timestamp":"2024-08-14T13:17:07.8948740+05:30","Level":"Debug","MessageTemplate":"Navigate to {0} on chrome browser"}
+{"Timestamp":"2024-08-14T13:17:17.8064303+05:30","Level":"Debug","MessageTemplate":"driver closed"}
+{"Timestamp":"2024-08-14T13:17:17.8222504+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"Search results in Google browser"}}
+{"Timestamp":"2024-08-14T13:17:22.5243494+05:30","Level":"Debug","MessageTemplate":"Navigate to {0} on edge browser"}
+{"Timestamp":"2024-08-14T13:17:27.6650786+05:30","Level":"Debug","MessageTemplate":"driver closed"}
