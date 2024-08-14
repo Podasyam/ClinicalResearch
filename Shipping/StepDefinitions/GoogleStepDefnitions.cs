@@ -21,9 +21,9 @@ namespace Shipping.StepDefinitions
         {
             InitDriver(browserName); // Initiated driver
             //Goto(Hooks.config.AppiumUrl.ToLower());                        // 
-            Goto("https://artoftesting.com/samplesiteforselenium"); // added URL and push to branch           
+            Goto("https://magento.softwaretestingboard.com/"); // added URL and push to branch           
             var driverTitle = Title;
-            Assert.AreEqual("Sample Webpage for Selenium Automation Practice | ArtOfTesting", driverTitle); // Added Assert//
+            Assert.AreEqual("Home Page", driverTitle); // Added Assert//
             //Assert.That(driverTitle, Is.EqualTo("ArtOfTesting").Or.EqualTo("Art"));
             //Assert.That(driverTitle, Is.Not.Null);
         }
@@ -33,15 +33,15 @@ namespace Shipping.StepDefinitions
         {
             try
             {
-                LoginPageFlow loginPageFlow = new LoginPageFlow(_driver);
-                loginPageFlow.EnterUserName();
-                Serilog.Log.Debug("Username has been entered in username textbox");
+                var loginPageFlow = new LoginPageFlow(_driver);
+                loginPageFlow.SearchResults();
+                Serilog.Log.Debug("text has been entered in search textbox");
             }
             catch(NoSuchElementException ex)
             {
 
                 Console.WriteLine(ex.Message);
-                Serilog.Log.Debug("UserName is not entered", ex.Message);
+                Serilog.Log.Debug("text is not entered in search textbox", ex.Message);
             }
 
         }
@@ -77,6 +77,21 @@ namespace Shipping.StepDefinitions
 
 
         }
+
+        [When(@"User click on cloths link")]
+        public void WhenUserClickOnClothsLink()
+        {
+            
+        }
+
+        [Then(@"User should navigate to cloths webpage")]
+        public void ThenUserShouldNavigateToClothsWebpage()
+        {
+            
+        }
+
+
+
 
 
     }

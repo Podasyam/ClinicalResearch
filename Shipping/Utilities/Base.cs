@@ -20,14 +20,20 @@ namespace Shipping.Utilities
             {
                 if (browser.Equals("chrome"))
                 {
+                    ChromeOptions option = new ChromeOptions();
+                    option.AddArguments("--headless");
+                    option.AddArguments("--disable-gpu");
                     new DriverManager().SetUpDriver(new ChromeConfig());//Webdriver Manager
-                    _driver = new ChromeDriver();
+                    _driver = new ChromeDriver(option);
                     Serilog.Log.Debug("Navigate to {0} on chrome browser");
                 }
                 else if (browser.Equals("Edge"))
                 {
                     //new DriverManager().SetUpDriver(new EdgeConfig());
-                    _driver = new EdgeDriver();                    
+                    EdgeOptions option = new EdgeOptions();
+                    option.AddArguments("--headless");
+                    option.AddArguments("--disable-gpu");
+                    _driver = new EdgeDriver(option);                    
                     Serilog.Log.Debug("Navigate to {0} on edge browser");
                 }
                 else                 

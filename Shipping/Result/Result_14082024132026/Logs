@@ -1,0 +1,3 @@
+{"Timestamp":"2024-08-14T13:20:27.2838808+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"FeatureName GoogleSearchResults"}}
+{"Timestamp":"2024-08-14T13:20:27.6171781+05:30","Level":"Information","MessageTemplate":"Select feature file {0} to run","Properties":{"0":"Search results in Google browser"}}
+{"Timestamp":"2024-08-14T13:20:38.7545260+05:30","Level":"Debug","MessageTemplate":"Navigate to {0} on chrome browser"}
